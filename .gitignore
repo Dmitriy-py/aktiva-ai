@@ -1,0 +1,20 @@
+# Виртуальное окружение Python
+venv/
+__pycache__/
+*.pyc
+
+# Временные аудиофайлы
+*.wav
+input.wav
+resp.wav
+
+# Системный командный канал и состояние
+cmd.fifo
+state.json
+
+# Локальная база данных ChromaDB (её проще пересоздать)
+chroma_db/
+
+# Системные файлы
+.DS_Store
+.Xauthority

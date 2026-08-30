@@ -1,0 +1,9 @@
+Prometheus & Grafana:
+- Типы метрик: Counter (только растет), Gauge (может падать и расти), Histogram (распределение).
+- PromQL: Запрос 'rate(http_requests_total[5m])' показывает количество запросов в секунду.
+- Alertmanager: Группировка и отправка алертов в Telegram/Slack.
+
+ELK Stack (Elasticsearch, Logstash, Kibana):
+- Индексация: Логи должны иметь четкую структуру (JSON).
+- Log Rotation: Обязательная настройка через logrotate, чтобы диски не забивались старыми логами.
+- Трейсинг (Jaeger/Tempo): Отслеживание пути одного запроса через все микросервисы.

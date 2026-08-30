@@ -1,0 +1,31 @@
+services:
+  aktiva-ai:
+    build: .
+    container_name: aktiva_ai_container
+    network_mode: "host"
+    user: "1000:1000"
+    environment:
+      - DISPLAY=${DISPLAY}
+      - HOME=/home/aktivator
+      - XAUTHORITY=/dev/null
+      - QT_X11_NO_MITSHM=1
+      - QT_QPA_PLATFORM=xcb
+      - PULSE_SERVER=unix:/run/user/1000/pulse/native
+      - DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+    volumes:
+      - .:/app
+      - /tmp/.X11-unix:/tmp/.X11-unix:ro
+      - /run/user/1000/pulse/native:/run/user/1000/pulse/native
+      - /run/user/1000/bus:/run/user/1000/bus
+      - ~/.config/pulse/cookie:/home/aktivator/.config/pulse/cookie:ro
+      - /home/aktivator:/home/aktivator
+    devices:
+      - /dev/snd:/dev/snd
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    restart: "no"

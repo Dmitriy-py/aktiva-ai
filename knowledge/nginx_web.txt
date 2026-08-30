@@ -1,0 +1,11 @@
+Конфигурация Nginx:
+- Путь к конфигам: /etc/nginx/sites-available/ и ссылки в sites-enabled/.
+- Проверка конфига на ошибки: nginx -t.
+- Перезагрузка без остановки: systemctl reload nginx.
+
+Типовой Proxy-pass для Nginx:
+location / {
+    proxy_pass http://localhost:8080;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+}

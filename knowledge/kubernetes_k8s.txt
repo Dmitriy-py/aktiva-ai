@@ -1,0 +1,6 @@
+Основные команды Kubectl:
+- kubectl get nodes: статус узлов кластера.
+- kubectl get pods -A: список всех подов во всех неймспейсах.
+- kubectl describe pod [name]: подробная информация о поде (помогает найти причину ошибки).
+- kubectl apply -f file.yaml: развертывание манифеста.
+- kubectl get events --sort-by='.lastTimestamp': последние события в кластере (важно для отладки).
